@@ -1,7 +1,16 @@
-# macos-app-screenshot
+# ai-agent-plugin
 
-Capture a retina, shadow-free screenshot of any macOS app's window **by app
-name** — no window-id hunting. One skill, installable four ways.
+**Dreamon's collection of agent skills**, packaged for Claude Code, Codex, and
+other agents that read the [Agent Skills](https://agentskills.io) format.
+
+## Skills
+
+| Skill | What it does |
+|---|---|
+| [macos-app-screenshot](plugins/macos-app-screenshot/skills/macos-app-screenshot/) | Capture a retina, shadow-free screenshot of any macOS app's window **by app name** — no window-id hunting. |
+
+More skills land here as they are built; installing the plugin installs all of
+them.
 
 ```bash
 scripts/shot <AppName> [output.png]
@@ -18,23 +27,22 @@ minimized) window.
 **npx (auto-detects Claude Code, Codex, Cursor, and 20+ agents):**
 
 ```bash
-npx skills add Dreamon-im/macos-app-screenshot-plugin/plugins/macos-app-screenshot/skills/macos-app-screenshot
+npx skills add Dreamon-im/ai-agent-plugin/plugins/macos-app-screenshot/skills/macos-app-screenshot
 ```
 
 **Claude Code plugin:**
 
 ```
-/plugin marketplace add Dreamon-im/macos-app-screenshot-plugin
-/plugin install macos-app-screenshot@dreamon-plugins
+/plugin marketplace add Dreamon-im/ai-agent-plugin
+/plugin install ai-agent-plugin@dreamon-plugins
 ```
 
 **OpenAI Codex plugin:** add this repo as a plugin marketplace
 (`.agents/plugins/marketplace.json`), or copy the skill folder into
 `~/.codex/skills/`.
 
-**Any agent, by hand:** copy or symlink
-`plugins/macos-app-screenshot/skills/macos-app-screenshot/` into that agent's
-skills directory (e.g. `~/.claude/skills/`, `~/.codex/skills/`,
+**Any agent, by hand:** copy or symlink the skill folder you want into that
+agent's skills directory (e.g. `~/.claude/skills/`, `~/.codex/skills/`,
 `~/.agents/skills/`).
 
 ## Structure
@@ -42,12 +50,21 @@ skills directory (e.g. `~/.claude/skills/`, `~/.codex/skills/`,
 ```
 .agents/plugins/marketplace.json         OpenAI/Codex marketplace manifest
 .claude-plugin/marketplace.json          Claude Code marketplace manifest
-plugins/macos-app-screenshot/
-├── plugin.json                          OpenAI plugin manifest
-├── .claude-plugin/plugin.json           Claude Code plugin manifest
-└── skills/macos-app-screenshot/
-    ├── SKILL.md                         instructions + gotchas
-    └── scripts/shot                     the capture script
+plugins/
+└── macos-app-screenshot/
+    ├── .codex-plugin/plugin.json        OpenAI plugin manifest
+    ├── .claude-plugin/plugin.json       Claude Code plugin manifest
+    └── skills/
+        └── macos-app-screenshot/
+            ├── SKILL.md                 instructions + gotchas
+            └── scripts/shot             the capture script
 ```
+
+## Adding a skill
+
+Create `plugins/<plugin>/skills/<skill-name>/SKILL.md` (name + description
+front matter) plus any scripts. The marketplaces pick it up from the
+directory listing; no manifest changes are needed when adding a skill to an
+existing plugin.
 
 The skill body and script exist once; every ecosystem points at them.

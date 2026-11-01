@@ -1,11 +1,13 @@
 {
   "name": "dreamon-plugins",
-  "owner": { "name": "Dreamon-im" },
+  "owner": {
+    "name": "Dreamon-im"
+  },
   "plugins": [
     {
-      "name": "macos-app-screenshot",
+      "name": "ai-agent-plugin",
       "source": "./plugins/macos-app-screenshot",
-      "description": "Capture retina, shadow-free screenshots of any macOS app's window by app name.",
+      "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot.",
       "version": "1.0.0"
     }
   ]

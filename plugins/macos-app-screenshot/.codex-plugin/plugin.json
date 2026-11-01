@@ -1,10 +1,16 @@
 {
-  "name": "macos-app-screenshot",
+  "name": "ai-agent-plugin",
   "version": "1.0.0",
-  "description": "Capture retina, shadow-free screenshots of any macOS app's window by app name.",
-  "author": { "name": "Dreamon-im" },
+  "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot.",
+  "author": {
+    "name": "Dreamon-im"
+  },
   "repository": "https://github.com/Dreamon-im/macos-app-screenshot-plugin",
-  "keywords": ["screenshot", "macos", "screen-capture"],
+  "keywords": [
+    "screenshot",
+    "macos",
+    "screen-capture"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "macOS App Screenshot",
@@ -12,7 +18,9 @@
     "longDescription": "Capture a retina, shadow-free screenshot of any macOS app's frontmost window by app name. The agent resolves the window automatically, captures at 2x, and can convert captures to WebP for the web.",
     "developerName": "Dreamon-im",
     "category": "Developer Tools",
-    "capabilities": ["Read"],
+    "capabilities": [
+      "Read"
+    ],
     "defaultPrompt": [
       "Take a screenshot of Deckhand",
       "Capture the Safari window and convert it to WebP"
