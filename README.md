@@ -18,14 +18,14 @@ minimized) window.
 **npx (auto-detects Claude Code, Codex, Cursor, and 20+ agents):**
 
 ```bash
-npx skills add airbob/macos-app-screenshot-plugin/plugins/macos-app-screenshot/skills/macos-app-screenshot
+npx skills add Dreamon-im/macos-app-screenshot-plugin/plugins/macos-app-screenshot/skills/macos-app-screenshot
 ```
 
 **Claude Code plugin:**
 
 ```
-/plugin marketplace add airbob/macos-app-screenshot-plugin
-/plugin install macos-app-screenshot@airbob-plugins
+/plugin marketplace add Dreamon-im/macos-app-screenshot-plugin
+/plugin install macos-app-screenshot@dreamon-plugins
 ```
 
 **OpenAI Codex plugin:** add this repo as a plugin marketplace

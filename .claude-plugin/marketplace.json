@@ -1,6 +1,6 @@
 {
-  "name": "airbob-plugins",
-  "owner": { "name": "airbob" },
+  "name": "dreamon-plugins",
+  "owner": { "name": "Dreamon-im" },
   "plugins": [
     {
       "name": "macos-app-screenshot",

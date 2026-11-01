@@ -2,15 +2,15 @@
   "name": "macos-app-screenshot",
   "version": "1.0.0",
   "description": "Capture retina, shadow-free screenshots of any macOS app's window by app name.",
-  "author": { "name": "airbob" },
-  "repository": "https://github.com/airbob/macos-app-screenshot-plugin",
+  "author": { "name": "Dreamon-im" },
+  "repository": "https://github.com/Dreamon-im/macos-app-screenshot-plugin",
   "keywords": ["screenshot", "macos", "screen-capture"],
   "skills": "./skills/",
   "interface": {
     "displayName": "macOS App Screenshot",
     "shortDescription": "Screenshot any macOS app window by name",
     "longDescription": "Capture a retina, shadow-free screenshot of any macOS app's frontmost window by app name. The agent resolves the window automatically, captures at 2x, and can convert captures to WebP for the web.",
-    "developerName": "airbob",
+    "developerName": "Dreamon-im",
     "category": "Developer Tools",
     "capabilities": ["Read"],
     "defaultPrompt": [
