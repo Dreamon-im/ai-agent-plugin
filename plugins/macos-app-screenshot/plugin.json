@@ -1,8 +1,0 @@
-{
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "macos-app-screenshot",
-  "version": "1.0.0",
-  "description": "Capture retina, shadow-free screenshots of any macOS app's window by app name, with tips for marketing-quality captures and WebP conversion.",
-  "author": "airbob",
-  "keywords": ["screenshot", "macos", "screen-capture"]
-}
