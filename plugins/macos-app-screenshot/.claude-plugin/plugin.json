@@ -1,0 +1,6 @@
+{
+  "name": "macos-app-screenshot",
+  "version": "1.0.0",
+  "description": "Capture retina, shadow-free screenshots of any macOS app's window by app name.",
+  "author": "airbob"
+}

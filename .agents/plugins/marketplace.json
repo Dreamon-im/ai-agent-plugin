@@ -5,7 +5,7 @@
       "name": "macos-app-screenshot",
       "source": {
         "source": "local",
-        "path": "./macos-app-screenshot-plugin"
+        "path": "./plugins/macos-app-screenshot"
       },
       "policy": {
         "installation": "AVAILABLE",

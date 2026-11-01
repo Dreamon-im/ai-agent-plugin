@@ -1,0 +1,12 @@
+{
+  "name": "airbob-plugins",
+  "owner": { "name": "airbob" },
+  "plugins": [
+    {
+      "name": "macos-app-screenshot",
+      "source": "./plugins/macos-app-screenshot",
+      "description": "Capture retina, shadow-free screenshots of any macOS app's window by app name.",
+      "version": "1.0.0"
+    }
+  ]
+}
