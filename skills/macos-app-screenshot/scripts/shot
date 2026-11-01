@@ -1,0 +1,34 @@
+#!/bin/zsh
+# shot — screenshot an app's frontmost window by name (retina, no shadow).
+# usage: shot <AppName> [output.png]
+set -euo pipefail
+app="${1:?usage: shot <AppName> [output.png]}"
+safe="${app//[^a-zA-Z0-9]/}"
+out="${2:-$HOME/Desktop/${safe}-$(date +%Y%m%d-%H%M%S).png}"
+
+id=$(swift - "$app" <<'EOF'
+import CoreGraphics
+import Foundation
+let needle = CommandLine.arguments[1].lowercased()
+let opts = CGWindowListOption([.optionOnScreenOnly, .excludeDesktopElements])
+let list = CGWindowListCopyWindowInfo(opts, kCGNullWindowID) as! [[String: Any]]
+// Front-to-back order: prefer an exact name match, then a partial one.
+for pass in [true, false] {
+    for w in list {
+        guard let owner = w["kCGWindowOwnerName"] as? String,
+              let num = w["kCGWindowNumber"] as? Int,
+              let b = w["kCGWindowBounds"] as? [String: Any],
+              let width = b["Width"] as? Double, width > 100
+        else { continue }
+        let lower = owner.lowercased()
+        if (pass && lower == needle) || (!pass && lower.contains(needle)) {
+            print(num)
+            exit(0)
+        }
+    }
+}
+exit(2)
+EOF
+) || { echo "No on-screen window for '$app'. Is the app running with a visible window?" >&2; exit 2; }
+
+screencapture -x -o -l"$id" "$out" && echo "saved: $out"
