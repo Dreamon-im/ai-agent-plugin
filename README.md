@@ -14,15 +14,19 @@ Each skill is its own plugin, so you install only the ones you want.
 
 ### macos-app-screenshot
 
+Ask your agent to take a screenshot of an app, or run the script from the
+installed `macos-app-screenshot` skill folder:
+
 ```bash
-scripts/shot <AppName> [output.png]
-# shot Deckhand                       → ~/Desktop/Deckhand-<timestamp>.png
-# shot preview ~/shots/preview.png    # partial names work
+./scripts/shot Deckhand
+./scripts/shot preview ~/shots/preview.png   # partial names work
 ```
 
-2000×1280-class PNG at 2× retina, drop shadow omitted. Requires **Screen
-Recording** permission for the terminal running the agent, and a visible (not
-minimized) window.
+The first command saves to `~/Desktop/Deckhand-<timestamp>.png`. PNG dimensions
+depend on the window size and display scaling; the drop shadow is omitted.
+Requires macOS, Swift (from Xcode or Xcode Command Line Tools), **Screen
+Recording** permission for the terminal or app running the agent, and a visible
+(not minimized) window. Create the output directory first when using a custom path.
 
 ### iphone-home-screen
 
@@ -30,17 +34,27 @@ Ask in plain language, e.g. "move Carro into the SGLife folder". The skill
 shows the planned moves and writes to the phone only after you confirm. Every
 write is backed up to `~/Library/Application Support/homespring/`.
 
-- macOS 13 or later, Apple silicon or Intel. Ships a prebuilt `iconctl`
-  binary (about 15 MB); nothing else to install.
-- The iPhone must be unlocked and trust this Mac, over USB, or over Wi-Fi
-  once "Show this iPhone when on Wi-Fi" is on in Finder.
+- Ships a prebuilt universal `iconctl` binary (about 15 MB) targeting macOS 13
+  or later, for Apple silicon and Intel. No compilation or Homebrew dependencies
+  are needed to run it. Verified on macOS 27, with the Intel build under Rosetta;
+  older macOS releases and physical Intel Macs have not yet been tested.
+- The iPhone must be unlocked and trust this Mac. Connect by USB, or enable
+  "Show this iPhone when on Wi-Fi" in Finder and keep both devices on the same
+  Wi-Fi network. USB is preferred when plugged in.
+- A locked or sleeping iPhone may disappear from Wi-Fi discovery. Unlock it
+  and retry if no device is found.
 
 Source code, build scripts and tests live in
 [Dreamon-im/iphone-home-screen](https://github.com/Dreamon-im/iphone-home-screen).
 
 ## Install
 
-**npx (auto-detects Claude Code, Codex, Cursor, and 20+ agents):**
+Choose one install method per skill and agent to avoid loading duplicate copies.
+For marketplace installs, add the marketplace once, then run only the install
+commands for the plugins you want. Both skills need local execution on a Mac
+with access to the app window or iPhone; a cloud session alone cannot access them.
+
+**npx (requires Node.js/npm; supports Claude Code, Codex and other agents):**
 
 ```bash
 npx skills add Dreamon-im/ai-agent-plugin/plugins/macos-app-screenshot/skills/macos-app-screenshot
@@ -65,8 +79,9 @@ codex plugin add iphone-home-screen@dreamon-plugins
 
 If you installed the screenshot plugin under its old name `ai-agent-plugin`,
 remove it (`codex plugin remove ai-agent-plugin@dreamon-plugins`) and add
-`macos-app-screenshot@dreamon-plugins`. Claude Code moves existing installs
-over on its own.
+`macos-app-screenshot@dreamon-plugins`. The Claude Code marketplace declares a
+rename from `ai-agent-plugin` to `macos-app-screenshot`; clients that support
+marketplace renames can migrate it when the marketplace is refreshed.
 
 **Any agent, by hand:** copy or symlink the skill folder you want into that
 agent's skills directory (e.g. `~/.claude/skills/`, `~/.codex/skills/`,
@@ -101,20 +116,10 @@ As its own plugin: create `plugins/<name>/skills/<name>/SKILL.md` (name +
 description front matter) plus any scripts, add `.claude-plugin/plugin.json`
 and `.codex-plugin/plugin.json` next to `skills/`, and add an entry to both
 `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json`.
-Run `claude plugin validate .` before pushing.
+Run `claude plugin validate .` before pushing. This checks Claude Code manifests;
+verify Codex support separately by installing the plugin with the Codex CLI.
 
 To add a skill to an existing plugin instead, create
-`plugins/<plugin>/skills/<skill-name>/SKILL.md`; no manifest changes are needed.
-
-## Updating iphone-home-screen
-
-The skill is developed in
-[Dreamon-im/iphone-home-screen](https://github.com/Dreamon-im/iphone-home-screen),
-whose `skill/` folder is the source of truth. After a change there is pushed,
-copy it here and bump `version` in both of its `plugin.json` files:
-
-```bash
-rsync -a --delete <path-to>/iphone-home-screen/skill/ plugins/iphone-home-screen/skills/iphone-home-screen/
-```
-
-The skill body and script exist once; every ecosystem points at them.
+`plugins/<plugin>/skills/<skill-name>/SKILL.md`; the standard `skills/` directory
+is already discovered. Bump the plugin version in both manifests and update any
+version pinned in a marketplace entry so existing users receive the update.
