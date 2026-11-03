@@ -1,7 +1,7 @@
 {
-  "name": "ai-agent-plugin",
-  "version": "1.0.0",
-  "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot.",
+  "name": "macos-app-screenshot",
+  "version": "1.0.1",
+  "description": "Capture a retina, shadow-free screenshot of any macOS app's window by app name.",
   "author": {
     "name": "airbob"
   }

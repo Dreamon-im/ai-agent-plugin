@@ -51,13 +51,22 @@ npx skills add Dreamon-im/ai-agent-plugin/plugins/iphone-home-screen/skills/ipho
 
 ```
 /plugin marketplace add Dreamon-im/ai-agent-plugin
-/plugin install ai-agent-plugin@dreamon-plugins        # macos-app-screenshot
+/plugin install macos-app-screenshot@dreamon-plugins
 /plugin install iphone-home-screen@dreamon-plugins
 ```
 
-**OpenAI Codex plugin:** add this repo as a plugin marketplace
-(`.agents/plugins/marketplace.json`), or copy the skill folder into
-`~/.codex/skills/`.
+**OpenAI Codex plugin:**
+
+```bash
+codex plugin marketplace add Dreamon-im/ai-agent-plugin
+codex plugin add macos-app-screenshot@dreamon-plugins
+codex plugin add iphone-home-screen@dreamon-plugins
+```
+
+If you installed the screenshot plugin under its old name `ai-agent-plugin`,
+remove it (`codex plugin remove ai-agent-plugin@dreamon-plugins`) and add
+`macos-app-screenshot@dreamon-plugins`. Claude Code moves existing installs
+over on its own.
 
 **Any agent, by hand:** copy or symlink the skill folder you want into that
 agent's skills directory (e.g. `~/.claude/skills/`, `~/.codex/skills/`,

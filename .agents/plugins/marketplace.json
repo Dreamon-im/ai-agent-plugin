@@ -2,7 +2,7 @@
   "name": "dreamon-plugins",
   "plugins": [
     {
-      "name": "ai-agent-plugin",
+      "name": "macos-app-screenshot",
       "source": {
         "source": "local",
         "path": "./plugins/macos-app-screenshot"
@@ -12,7 +12,7 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity",
-      "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot."
+      "description": "Capture a retina, shadow-free screenshot of any macOS app's window by app name."
     },
     {
       "name": "iphone-home-screen",

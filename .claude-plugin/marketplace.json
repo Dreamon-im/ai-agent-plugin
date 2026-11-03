@@ -4,12 +4,15 @@
   "owner": {
     "name": "Dreamon-im"
   },
+  "renames": {
+    "ai-agent-plugin": "macos-app-screenshot"
+  },
   "plugins": [
     {
-      "name": "ai-agent-plugin",
+      "name": "macos-app-screenshot",
       "source": "./plugins/macos-app-screenshot",
-      "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot.",
-      "version": "1.0.0"
+      "description": "Capture a retina, shadow-free screenshot of any macOS app's window by app name.",
+      "version": "1.0.1"
     },
     {
       "name": "iphone-home-screen",
