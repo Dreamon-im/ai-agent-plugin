@@ -2,5 +2,7 @@
   "name": "ai-agent-plugin",
   "version": "1.0.0",
   "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot.",
-  "author": "airbob"
+  "author": {
+    "name": "airbob"
+  }
 }

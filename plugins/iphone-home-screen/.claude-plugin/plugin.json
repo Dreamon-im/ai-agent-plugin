@@ -1,0 +1,11 @@
+{
+  "name": "iphone-home-screen",
+  "version": "0.2.0",
+  "description": "Organize an iPhone home screen over USB or Wi-Fi: move apps, create and tidy folders, find offloaded apps, preview changes, back up and restore. macOS 13+, includes a prebuilt iconctl binary.",
+  "author": {
+    "name": "Dreamon-im"
+  },
+  "homepage": "https://github.com/Dreamon-im/iphone-home-screen",
+  "repository": "https://github.com/Dreamon-im/iphone-home-screen",
+  "keywords": ["iphone", "ios", "home-screen", "macos"]
+}

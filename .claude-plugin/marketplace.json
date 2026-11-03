@@ -1,5 +1,6 @@
 {
   "name": "dreamon-plugins",
+  "description": "Dreamon's agent skills for Claude Code and Codex",
   "owner": {
     "name": "Dreamon-im"
   },
@@ -9,6 +10,12 @@
       "source": "./plugins/macos-app-screenshot",
       "description": "Dreamon's collection of agent skills for coding agents — starting with macOS App Screenshot.",
       "version": "1.0.0"
+    },
+    {
+      "name": "iphone-home-screen",
+      "source": "./plugins/iphone-home-screen",
+      "description": "Organize an iPhone home screen over USB or Wi-Fi: move apps, create and tidy folders, find offloaded apps, preview changes, back up and restore. macOS 13+, includes a prebuilt iconctl binary.",
+      "category": "productivity"
     }
   ]
 }

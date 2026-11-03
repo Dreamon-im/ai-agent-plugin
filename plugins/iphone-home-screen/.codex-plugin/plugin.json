@@ -1,0 +1,32 @@
+{
+  "name": "iphone-home-screen",
+  "version": "0.2.0",
+  "description": "Organize an iPhone home screen over USB or Wi-Fi: move apps, create and tidy folders, find offloaded apps, preview changes, back up and restore.",
+  "author": {
+    "name": "Dreamon-im"
+  },
+  "repository": "https://github.com/Dreamon-im/iphone-home-screen",
+  "keywords": [
+    "iphone",
+    "ios",
+    "home-screen",
+    "macos"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "iPhone Home Screen",
+    "shortDescription": "Rearrange your iPhone home screen by asking",
+    "longDescription": "Move apps, create and tidy folders, and find offloaded apps on an iPhone connected to this Mac over USB or Wi-Fi. Every change is shown as a plan first, backed up before it is written, and verified afterwards. macOS 13 or later; includes a prebuilt iconctl binary.",
+    "developerName": "Dreamon-im",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Show me what's on my iPhone home screen",
+      "Move Carro into the SGLife folder"
+    ],
+    "screenshots": []
+  }
+}
